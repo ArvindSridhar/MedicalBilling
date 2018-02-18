@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="mongodb-driver-3.4.3-sources">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/mongodb-driver-3.4.3.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/mongodb-driver-core-3.4.3.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/bson-3.4.3.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jackson-databind-2.9.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Downloads/mongodb-driver-3.4.3-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/mongodb-driver-core-3.4.3-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/bson-3.4.3-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jackson-databind-2.9.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
