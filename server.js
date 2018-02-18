@@ -32,7 +32,10 @@ app.post('/upload', function(req, res) {
   // var spawn = require('child_process').spawn;
   // var child = spawn('java', ['HelloWorld.java']
   const { exec } = require('child_process');
-  exec('java HelloWorld '+path);
+  exec('java ProcedureBuilder '+path, {cwd: 'foo'}, function(error, stdout, stderr) {
+    console.log('stdout', stdout);
+    console.log('stderr', stderr);
+  });
 //    res.send('File uploaded!');
 
   });
