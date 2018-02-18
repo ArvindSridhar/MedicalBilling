@@ -286,11 +286,11 @@ public class ProcedureBuilder {
             PrintWriter printWriter = new PrintWriter(fileWriter);
             MongoCollection<Document> collection = database.getCollection("procedures");
             for (int i = 0; i < codes.size(); i++) {
-                Document myDoc = collection.find((eq("code", "70480"))).first();
+                Document myDoc = collection.find((eq("code", codes.get(i)))).first();
                 if (myDoc != null) {
                     printWriter.print(myDoc.toJson());
                     docCollector.add(myDoc.toJson());
-                   
+
                 }
             }
             printWriter.close();
