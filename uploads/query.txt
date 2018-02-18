@@ -1,0 +1,1 @@
+Patient a has an abdominal MRI and a chest CT scan performed last week.
