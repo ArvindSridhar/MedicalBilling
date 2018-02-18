@@ -1,30 +1,25 @@
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.JsonNode;
-import gov.nih.nlm.nls.metamap.*;
-
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
-import com.mongodb.ServerAddress;
-
-import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;
-
+import com.mongodb.client.MongoDatabase;
+import gov.nih.nlm.nls.metamap.*;
 import org.bson.Document;
-import java.util.Arrays;
-import com.mongodb.Block;
 
-import com.mongodb.client.MongoCursor;
-import static com.mongodb.client.model.Filters.*;
-import com.mongodb.client.result.DeleteResult;
-import static com.mongodb.client.model.Updates.*;
-import com.mongodb.client.result.UpdateResult;
-
-import java.io.InputStream;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import javax.xml.stream.XMLInputFactory;
+import java.io.*;
+import java.lang.reflect.Executable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.mongodb.client.model.Filters.eq;
 
 public class ProcedureBuilder {
     private final String BI0PORTAL_TOKEN = "d8333357-fa12-458a-a6b8-4e97958b0ae5";
@@ -32,7 +27,7 @@ public class ProcedureBuilder {
     public static void main(String[] args) {
         ProcedureBuilder p = new ProcedureBuilder();
 
-        String querystr = "A 40-year old male diagnosed with diabetes mellitus on Glucophage 500mg/day suffering from heavy breath. No chest pain is present. He is obese and does not exercise. He smokes heavily.";
+        String querystr = "A 40-year old male diagnosed with diabetes mellitus on Glucophage 500mg/day suffering from heavy breath. No chest pain is present. He is obese and does not exercise. He recieved an abdominal CT Scan. He smokes heavily.";
         ArrayList<String> proc = p.getCodes(querystr);
         p.getPricingInformation(proc);
     }
@@ -280,21 +275,53 @@ public class ProcedureBuilder {
 
     }
 
-    public ArrayList<String> getPricingInformation(ArrayList<String> codes){
+    public File getPricingInformation(ArrayList<String> codes) {
         ArrayList<String> docCollector = new ArrayList<String>();
         MongoClientURI connectionString = new MongoClientURI("mongodb://foo:bar@ds125198.mlab.com:25198/codelookup");
         MongoClient mongoClient = new MongoClient(connectionString);
         MongoDatabase database = mongoClient.getDatabase("codelookup");
-        MongoCollection<Document> collection = database.getCollection("procedures");
-        for(int i=0; i< codes.size(); i++) {
-            Document myDoc = collection.find((eq("code", codes.get(i)))).first();
-            if(myDoc != null) {
-                docCollector.add(myDoc.toJson());
-                System.out.println(myDoc.toJson());
+        File output = new File("Desktop/output.json");
+        try {
+            FileWriter fileWriter = new FileWriter(output);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            MongoCollection<Document> collection = database.getCollection("procedures");
+            for (int i = 0; i < codes.size(); i++) {
+                Document myDoc = collection.find((eq("code", "70480"))).first();
+                if (myDoc != null) {
+                    printWriter.print(myDoc.toJson());
+                    docCollector.add(myDoc.toJson());
+                   
+                }
             }
+            printWriter.close();
+
+            return output;
+        }
+        catch(Exception e){
+            e.fillInStackTrace();
+            return null;
         }
 
-        return docCollector;
+
+    }
+
+    public String TextToString(File file) {
+        String line = null;
+        try{
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String s = "";
+            while((line = bufferedReader.readLine()) != null){
+                s+= line;
+
+            }
+            return s;
+
+        } catch (Exception e){
+            e.fillInStackTrace();
+            return null;
+        }
+
 
     }
 
