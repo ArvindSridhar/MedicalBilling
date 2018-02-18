@@ -27,8 +27,8 @@ public class ProcedureBuilder {
     public static void main(String[] args) {
         ProcedureBuilder p = new ProcedureBuilder();
 
-        String querystr = "A 40-year old male diagnosed with diabetes mellitus on Glucophage 500mg/day suffering from heavy breath. No chest pain is present. He is obese and does not exercise. He recieved an abdominal CT Scan. He smokes heavily.";
-        ArrayList<String> proc = p.getCodes(querystr);
+        //String querystr = "A 40-year old male diagnosed with diabetes mellitus on Glucophage 500mg/day suffering from heavy breath. No chest pain is present. He is obese and does not exercise. He recieved an abdominal CT Scan. He smokes heavily.";
+        ArrayList<String> proc = p.getCodes(p.TextToString(new File(args[0])));
         p.getPricingInformation(proc);
     }
 
