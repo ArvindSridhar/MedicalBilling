@@ -33,7 +33,7 @@ app.post('/upload', function(req, res) {
   // var spawn = require('child_process').spawn;
   // var child = spawn('java', ['HelloWorld.java']
   const { exec } = require('child_process');
-  exec('java HelloWorld')
+  exec('java HelloWorld '+path)
 //    res.send('File uploaded!');
 
   });
