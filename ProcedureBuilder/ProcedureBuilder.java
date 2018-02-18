@@ -7,13 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import gov.nih.nlm.nls.metamap.*;
 import org.bson.Document;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import javax.xml.stream.XMLInputFactory;
 import java.io.*;
-import java.lang.reflect.Executable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,9 +21,10 @@ public class ProcedureBuilder {
     public static void main(String[] args) {
         ProcedureBuilder p = new ProcedureBuilder();
 
-        //String querystr = "A 40-year old male diagnosed with diabetes mellitus on Glucophage 500mg/day suffering from heavy breath. No chest pain is present. He is obese and does not exercise. He recieved an abdominal CT Scan. He smokes heavily.";
-        ArrayList<String> proc = p.getCodes(p.TextToString(new File(args[0])));
+        String querystr = "A 40-year old male diagnosed with diabetes mellitus on Glucophage 500mg/day suffering from heavy breath. No chest pain is present. He is obese and does not exercise. He recieved an abdominal CT Scan. He smokes heavily.";
+        ArrayList<String> proc = p.getCodes(querystr);
         p.getPricingInformation(proc);
+
     }
 
     public static boolean isNotPresent(String s, List<String> w) {

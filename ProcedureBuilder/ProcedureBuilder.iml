@@ -10,5 +10,41 @@
     <orderEntry type="library" name="mongodb-driver-3.4.3-sources" level="project" />
     <orderEntry type="library" name="jackson-core-2.9.2" level="project" />
     <orderEntry type="library" name="dist" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/dependencies/mongodb-driver-core-3.4.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/dependencies/mongodb-driver-3.4.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/dependencies/jackson-databind-2.9.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/dependencies/jackson-core-2.9.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/dependencies/mongodb-driver-core-3.4.3-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/dependencies/mongodb-driver-3.4.3-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/dependencies/jackson-core-2.9.4-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/dependencies/bson-3.4.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/dependencies/bson-3.4.3-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/dependencies/dist/metamap-api-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
