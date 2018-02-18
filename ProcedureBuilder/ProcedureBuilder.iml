@@ -7,17 +7,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="javalib" level="project" />
-    <orderEntry type="library" name="MetaMapApi" level="project" />
-    <orderEntry type="library" name="prologbeans" level="project" />
-    <orderEntry type="library" name="jackson-core-2.9.2" level="project" />
     <orderEntry type="library" name="mongodb-driver-3.4.3-sources" level="project" />
-    <orderEntry type="library" name="mongodb-driver-3.4.3" level="project" />
-    <orderEntry type="library" name="mongodb-driver-core-3.4.3" level="project" />
-    <orderEntry type="library" name="mongodb-driver-core-3.4.3-sources" level="project" />
-    <orderEntry type="library" name="bson-3.4.3-sources" level="project" />
-    <orderEntry type="library" name="bson-3.4.3" level="project" />
-    <orderEntry type="library" name="jackson-databind-2.9.4-sources" level="project" />
-    <orderEntry type="library" name="jackson-databind-2.9.4" level="project" />
+    <orderEntry type="library" name="jackson-core-2.9.2" level="project" />
+    <orderEntry type="library" name="dist" level="project" />
   </component>
 </module>
